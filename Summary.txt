@@ -1,0 +1,19 @@
+Time taken : 2 hours
+
+Attributes
+1. results -> stack to temporary store result after combining with the mathematical operation before it. 
+               (ie. Equation = 7 - 5, Stack will have -5, 7). I chose stack because I need the result to be last in first out. 
+2. sign -> previous encountered mathematical operation
+3. isDecimal -> to indicate we have encounter '.'
+4. result -> temporary result at each stage
+
+To read in the equation, I have used Java's built in Scanner class. If the string is empty, calculate method will return 0. To carry out the calculation, the method will loop through the string. If the character read is a digit and there is no decimal before it, the following mathematical formula is applied:
+result = result * 10 + new number <- new number is the new character we read in.
+
+If there is a decimal point before this character, we apply the following formuala:
+result = result + new number / 10 
+
+When the method encountered '(', the previous mathematical operation is saved. We always assume the previous operation is always 2 character away from the '('.  Next, the method will take whatever in between the parenthesis( ie. for "( 7 - 5 )", 7 - 5 is taken )and do a recursive call. By using recursion, we can look forward and calculate the equation, then come back to the state wheere we left off. It is like breaking the equation to smaller parts and calculate them. Once we have got the result, add it to the stack. 
+
+Once we have loop through the entire string, add up all the results in the stack to get the final answer. 
+

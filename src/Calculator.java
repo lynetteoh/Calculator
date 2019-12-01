@@ -7,7 +7,7 @@ public class Calculator {
 		
 		if( sum == null || sum.length() == 0 ) return 0;
 		
-		//temporary store result if encounter brackets
+		//temporary store result
 		Stack<Double> results = new Stack<Double>();
 		
 		double result = 0;
